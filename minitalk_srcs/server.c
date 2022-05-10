@@ -6,7 +6,7 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 15:49:25 by myukang           #+#    #+#             */
-/*   Updated: 2022/05/10 19:35:02 by myukang          ###   ########.fr       */
+/*   Updated: 2022/05/10 22:36:06 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,7 @@ int	main(int ac, char **av)
 	else
 	{
 		pid = getpid();
-		ft_printf("Server pid : %d\n", pid);
-		ft_printf("%s\n", av[0]);
+		ft_printf("%s pid : %d\n", av[0], pid);
 		signal(SIGUSR1, handler);
 		signal(SIGUSR2, handler);
 		while (1)
