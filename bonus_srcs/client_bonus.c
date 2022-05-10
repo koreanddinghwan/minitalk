@@ -6,11 +6,11 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 15:49:35 by myukang           #+#    #+#             */
-/*   Updated: 2022/05/10 21:27:32 by myukang          ###   ########.fr       */
+/*   Updated: 2022/05/10 21:52:40 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "client.h"
+#include "client_bonus.h"
 
 void	request_char(int pid, char c)
 {

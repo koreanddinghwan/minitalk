@@ -6,7 +6,7 @@
 #    By: myukang <myukang@student.42.kr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/09 15:53:38 by myukang           #+#    #+#              #
-#    Updated: 2022/05/10 19:19:29 by myukang          ###   ########.fr        #
+#    Updated: 2022/05/10 21:53:17 by myukang          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,32 +27,53 @@ SERVER_SRCS = server.c
 SERVER_OBJS_O = $(SERVER_SRCS:.c=.o)
 SERVER_OBJS = $(addprefix $(DIR), $(SERVER_OBJS_O))
 
-OBJ_FILES = $(CLIENT_OBJS) $(SERVER_OBJS)
+BONUS_DIR = ./bonus_srcs/
+
+BONUS_SERVER = server_bonus
+BONUS_SERVER_SRCS = server_bonus.c
+BONUS_SERVER_OBJS_O = $(BONUS_SERVER_SRCS:.c=.o)
+BONUS_SERVER_OBJS = $(addprefix $(BONUS_DIR), $(BONUS_SERVER_OBJS_O))
+
+BONUS_CLIENT = client_bonus
+BONUS_CLIENT_SRCS = client_bonus.c
+BONUS_CLIENT_OBJS_O = $(BONUS_CLIENT_SRCS:.c=.o)
+BONUS_CLIENT_OBJS = $(addprefix $(BONUS_DIR), $(BONUS_CLIENT_OBJS_O))
+
+OBJS_FOR_CLEAN =  $(CLIENT_OBJS) $(SERVER_OBJS) $(BONUS_SERVER_OBJS) $(BONUS_CLIENT_OBJS)
+
 
 all : $(LIBFT) $(SERVER) $(CLIENT)
 
 $(NAME) : all
 
 $(LIBFT) : 
-	make -C ./libft/
-	mv ./libft/$(LIBFT) ./$(LIBFT)
+	@make -C ./libft/
+	@mv ./libft/$(LIBFT) ./$(LIBFT)
 
 $(SERVER) : $(SERVER_OBJS)
-	$(GCC) $(CFLAGS) -o $(SERVER) $^ $(LIBFT)
+	@$(GCC) $(CFLAGS) -o $@ $^ -I$(INC) $(LIBFT)
 
 $(CLIENT) : $(CLIENT_OBJS)
-	$(GCC) $(CFLAGS) -o $(CLIENT) $^ $(LIBFT)
+	@$(GCC) $(CFLAGS) -o $@ $^ -I$(INC) $(LIBFT)
 
-%.o : %.c
-	$(GCC) $(CFLAGS) -c -o $@ -I$(INC) $^
+bonus : $(LIBFT) $(BONUS_CLIENT) $(BONUS_SERVER)
+
+$(BONUS_CLIENT)  : $(BONUS_CLIENT_OBJS)
+	@$(GCC) $(CFLAGS) -o $@ $^ -I$(INC) $(LIBFT)
+
+$(BONUS_SERVER) : $(BONUS_SERVER_OBJS)
+	@$(GCC) $(CFLAGS) -o $@ $^ -I$(INC) $(LIBFT)
+
+%.o :  %.c
+	@$(GCC) $(CFLAGS) -c -o $@ $^ -I$(INC)
 
 clean : 
 	make clean -C ./libft
-	rm -rf $(OBJ_FILES) $(LIBFT) $(SERVER) $(CLIENT)
+	rm -rf $(LIBFT) $(OBJS_FOR_CLEAN)
 
 fclean : 
 	make clean
-	rm -rf $(OBJ_FILES) $(NAME)
+	rm -rf $(NAME) $(SERVER) $(CLIENT) $(BONUS_SERVER) $(BONUS_CLIENT)
 
 re : 
 	make fclean

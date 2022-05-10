@@ -6,7 +6,7 @@
 #    By: myukang <myukang@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/11 17:36:18 by myukang           #+#    #+#              #
-#    Updated: 2022/05/10 17:16:24 by myukang          ###   ########.fr        #
+#    Updated: 2022/05/10 21:52:28 by myukang          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,10 +36,11 @@ OBJ_FILES = $(OBJS)
 all : $(NAME)
 
 $(NAME) : $(OBJ_FILES)
-	ar rsc $(NAME) $^
+	@ar rsc $(NAME) $^
+	@echo "LIBFT MADE"
 
 %.o : %.c
-	$(CC) $(CFLAGS) $< -o $@ -I .
+	@$(CC) $(CFLAGS) $< -o $@ -I .
 
 fclean : clean
 	rm -f $(NAME)

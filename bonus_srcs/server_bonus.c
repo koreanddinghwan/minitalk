@@ -6,11 +6,11 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 15:49:25 by myukang           #+#    #+#             */
-/*   Updated: 2022/05/10 19:35:02 by myukang          ###   ########.fr       */
+/*   Updated: 2022/05/10 21:53:16 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "server.h"
+#include "server_bonus.h"
 
 t_server	g_server_set;
 
