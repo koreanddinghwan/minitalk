@@ -6,7 +6,7 @@
 #    By: myukang <myukang@student.42.kr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/09 15:53:38 by myukang           #+#    #+#              #
-#    Updated: 2022/05/10 21:53:17 by myukang          ###   ########.fr        #
+#    Updated: 2022/05/11 15:39:11 by myukang          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,12 +30,12 @@ SERVER_OBJS = $(addprefix $(DIR), $(SERVER_OBJS_O))
 BONUS_DIR = ./bonus_srcs/
 
 BONUS_SERVER = server_bonus
-BONUS_SERVER_SRCS = server_bonus.c
+BONUS_SERVER_SRCS = server_bonus.c time_test.c
 BONUS_SERVER_OBJS_O = $(BONUS_SERVER_SRCS:.c=.o)
 BONUS_SERVER_OBJS = $(addprefix $(BONUS_DIR), $(BONUS_SERVER_OBJS_O))
 
 BONUS_CLIENT = client_bonus
-BONUS_CLIENT_SRCS = client_bonus.c
+BONUS_CLIENT_SRCS = client_bonus.c client_err_check_bonus.c client_set_connection_bonus.c time_test.c
 BONUS_CLIENT_OBJS_O = $(BONUS_CLIENT_SRCS:.c=.o)
 BONUS_CLIENT_OBJS = $(addprefix $(BONUS_DIR), $(BONUS_CLIENT_OBJS_O))
 

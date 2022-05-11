@@ -6,7 +6,7 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 15:49:35 by myukang           #+#    #+#             */
-/*   Updated: 2022/05/10 22:36:04 by myukang          ###   ########.fr       */
+/*   Updated: 2022/05/11 15:10:43 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,6 @@ void	request_char(int pid, char c)
 			ret = kill(pid, SIGUSR2);
 		else
 			ret = kill(pid, SIGUSR1);
-		if (ret == -1)
-		{
-			ft_putstr_fd("Unavailable pid\n", 2);
-			exit(1);
-		}
 		c = c >> 1;
 		i++;
 		usleep(100);

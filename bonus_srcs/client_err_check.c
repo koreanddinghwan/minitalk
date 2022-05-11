@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.h                                           :+:      :+:    :+:   */
+/*   client_err_check.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/09 16:45:06 by myukang           #+#    #+#             */
-/*   Updated: 2022/05/11 17:19:34 by myukang          ###   ########.fr       */
+/*   Created: 2022/05/11 16:56:17 by myukang           #+#    #+#             */
+/*   Updated: 2022/05/11 17:19:32 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERVER_BONUS_H
-# define SERVER_BONUS_H
+#include "client_bonus.h"
 
-# include "../libft/libft.h"
-# include <sys/types.h>
-# include <signal.h>
-typedef struct s_server
+void	client_ac_check(int ac)
 {
-	int				requested_num;
-	unsigned char	charactor;
-}	t_server;
+	if (ac < 3)
+	{
+		ft_printf("argument counts leaks\n");
+		exit(1);
+	}
+}
 
-void	print_time();
-#endif
+void	client_spid_check(int server_pid)
+{
+	if (kill(server_pid, 0))
+	{
+		ft_printf("unavailable pid\n");
+		exit(1);
+	}
+}
+
