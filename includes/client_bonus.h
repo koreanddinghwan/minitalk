@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.h                                           :+:      :+:    :+:   */
+/*   client_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 16:45:07 by myukang           #+#    #+#             */
-/*   Updated: 2022/05/11 17:19:33 by myukang          ###   ########.fr       */
+/*   Updated: 2022/05/12 13:05:47 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,4 @@
 # include <signal.h>
 void	client_ac_check(int ac);
 void	client_spid_check(int server_pid);
-void	set_connection(int server_pid);
-void	print_time();
 #endif

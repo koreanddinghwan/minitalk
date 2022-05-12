@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.h                                           :+:      :+:    :+:   */
+/*   server_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 16:45:06 by myukang           #+#    #+#             */
-/*   Updated: 2022/05/11 17:19:34 by myukang          ###   ########.fr       */
+/*   Updated: 2022/05/12 00:43:56 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <signal.h>
 typedef struct s_server
 {
-	int				requested_num;
+	int				total_req_num;
 	unsigned char	charactor;
 }	t_server;
 
